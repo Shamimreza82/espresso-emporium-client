@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      rancho: ["'Rancho'", "cursive"], 
+    }
   },
   plugins: [require("daisyui")],
 }
