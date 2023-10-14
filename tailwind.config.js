@@ -8,6 +8,7 @@ export default {
     extend: {},
     fontFamily: {
       rancho: ["'Rancho'", "cursive"], 
+      Raleway: ['Raleway', 'sans-seri']
     }
   },
   plugins: [require("daisyui")],
