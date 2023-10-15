@@ -5,7 +5,8 @@ import Product from './Product';
 
 const Products = () => {
 
-    const coffees = useLoaderData()
+    const lodedCoffees = useLoaderData()
+    const [coffees, setCoffees] = useState(lodedCoffees)
 
   
     return (
@@ -19,7 +20,8 @@ const Products = () => {
              </div>
              <div className='grid grid-cols-2 gap-4 md:w-[70%] m-auto mt-4'>
                     {
-                        coffees?.map(coffee => <Product key={coffee._id} coffee ={coffee}></Product> )
+                        coffees?.map(coffee => <Product key={coffee._id} coffee ={coffee}
+                             coffees={coffees} setCoffees={setCoffees}  ></Product> )
                     }
              </div>
         </div>

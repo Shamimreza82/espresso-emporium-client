@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MdEditSquare, MdEditOff, MdDelete  } from "react-icons/md";
 import Swal from 'sweetalert2';
 
-const Product = ({coffee}) => {
+const Product = ({coffee, coffees, setCoffees}) => {
     const {_id, name, category, chef, details, photo, supplier, taste} = coffee; 
 
 
@@ -18,9 +18,8 @@ const Product = ({coffee}) => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
-            if (result.isConfirmed) {
-              
 
+            if (result.isConfirmed) {
             fetch(`http://localhost:5000/coffee/${_id}`, {
                 method: 'DELETE',
             })
@@ -33,7 +32,11 @@ const Product = ({coffee}) => {
                         'Your file has been deleted.',
                         'success'
                       )
+                    const remaning = coffees.filter(coffee => coffee._id !== _id); 
+                    setCoffees(remaning) 
                 }
+
+                
             })
 
             }
