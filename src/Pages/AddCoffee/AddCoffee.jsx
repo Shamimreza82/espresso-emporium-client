@@ -4,6 +4,7 @@ import bg from "../../assets/more/11.png";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Footer from "../../MainLayout/Footer/Footer";
+import { FaArrowLeft } from "react-icons/fa";
 
 const AddCoffee = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const AddCoffee = () => {
     const formInfo = { name, supplier, category, chef, taste, details, photo };
     console.log(formInfo);
 
-    fetch("http://localhost:5000/coffee", {
+    fetch("https://espresso-emporium-server-6xqe1i7nh-shamim-rezas-projects.vercel.app/coffee", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +41,7 @@ const AddCoffee = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/");
+          // navigate("/");
         }
       });
   };
@@ -58,7 +59,7 @@ const AddCoffee = () => {
           }}
         >
           <div className="md:w-[60%] m-auto mb-4">
-            <Link to="/">Back to Home</Link>
+            <Link className="flex items-center gap-2 hover:underline " to="/"> <FaArrowLeft></FaArrowLeft> Back to Home</Link>
           </div>
           <div className="bg-[#F4F3F0] md:w-[60%] m-auto md:p-10 p-3 rounded-md">
             <div className="text-center space-y-2">

@@ -8,7 +8,7 @@ const User = () => {
 
 
   const handledeleted = _id => {
-    fetch(`http://localhost:5000/user/${_id}`, {
+    fetch(`https://espresso-emporium-server-6xqe1i7nh-shamim-rezas-projects.vercel.app//user/${_id}`, {
         method: "DELETE", 
 
     })

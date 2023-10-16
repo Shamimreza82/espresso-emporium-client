@@ -18,7 +18,7 @@ const Products = () => {
                 <h2 className='text-3xl text-[#331A15]'>Our Popular Products</h2>
                 <Link to='/addCoffee' className='btn '>Add Coffee</Link>
              </div>
-             <div className='grid grid-cols-2 gap-4 md:w-[70%] m-auto mt-4'>
+             <div className='grid md:grid-cols-2 gap-4 md:w-[70%] m-auto mt-4'>
                     {
                         coffees?.map(coffee => <Product key={coffee._id} coffee ={coffee}
                              coffees={coffees} setCoffees={setCoffees}  ></Product> )

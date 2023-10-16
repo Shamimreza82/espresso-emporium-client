@@ -1,11 +1,12 @@
 import React from 'react';
 import Navber from '../../MainLayout/Header/Navber';
 import bg from '../../assets/more/11.png'
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const UpdateCoffee = () => {
-
+    const navigate = useNavigate()
 
     const coffee = useLoaderData()
     const {_id, name, category, chef, details, photo, supplier, taste} = coffee;
@@ -25,7 +26,7 @@ const UpdateCoffee = () => {
         const   updateCoffee = {name, supplier, category, chef, taste, details, photo}
         console.log(updateCoffee);
 
-        fetch(`http://localhost:5000/coffee/${_id}`, {
+        fetch(`https://espresso-emporium-server-6xqe1i7nh-shamim-rezas-projects.vercel.app/coffee/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,15 +38,16 @@ const UpdateCoffee = () => {
         console.log(data);
         if(data.modifiedCount > 0){
             Swal.fire(
-                'Update Successfull',
+                'Update Successful',
+                'Before Update',
                 'success'
               )
+              navigate('/')
         }
         else if (data.modifiedCount === 0) {
             Swal.fire(
-                'Update Failed',
-                'Update Failed',
-                'error'
+                'Need Some Changes',
+                'Before Update',
               ) 
         }
        })  
@@ -57,9 +59,9 @@ const UpdateCoffee = () => {
             <Navber></Navber>
             <div className='min-h-[100vh] md:py-10 py-3 md:my-10' style={{backgroundImage: `url(${bg})`,
             backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-                <div>
-                    <h1>Back to Home</h1>
-                </div>
+                <div className="md:w-[60%] m-auto mb-4">
+            <Link className="flex items-center gap-2 hover:underline " to="/"> <FaArrowLeft></FaArrowLeft> Back to Home</Link>
+            </div>
                 <div className='bg-[#F4F3F0] md:w-[60%] m-auto md:p-10 p-3'>
                     <div className='text-center space-y-2'>
                         <h3 className='text-2xl font-bold text-[#372727]'>Update Existing Coffee Details</h3> 

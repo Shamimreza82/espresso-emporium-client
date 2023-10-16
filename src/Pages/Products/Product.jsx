@@ -20,7 +20,7 @@ const Product = ({coffee, coffees, setCoffees}) => {
           }).then((result) => {
 
             if (result.isConfirmed) {
-            fetch(`http://localhost:5000/coffee/${_id}`, {
+            fetch(`https://espresso-emporium-server-6xqe1i7nh-shamim-rezas-projects.vercel.app/coffee/${_id}`, {
                 method: 'DELETE',
             })
             .then(res => res.json())
@@ -47,15 +47,16 @@ const Product = ({coffee, coffees, setCoffees}) => {
     
     return (
         <div>
-            <div className='flex justify-around items-center bg-[#F5F4F1] py-8 rounded-md font-Raleway '>
-                <img className='w-3/12' src={photo} alt="" />
+            <div className='flex justify-around items-center bg-[#F5F4F1] py-8 rounded-md font-Raleway px-2 '>
+                <img className='min-h-fit' src={photo} alt="" />
                 <div className='space-y-2'>
-                    <h1 className='text-base'><strong>Name:</strong> {name}</h1>
-                    <h2><strong>Category:</strong> {category}</h2>
-                    <h3>{details}</h3>
+                    <h1 className='md:text-base text-sm'><strong>Name:</strong> {name}</h1>
+                    <h2 className='md:text-base text-sm'><strong>Chef:</strong> {chef}</h2>
+                    <h3 className='md:text-base text-sm'><strong>Details: </strong>{details}</h3>
+                    <h4 className='md:text-base text-sm'><strong>Price:</strong> 890 TK </h4>
                 </div>
                 <div className=''>
-                    <Link><MdEditSquare className='bg-[#D2B48C] p-2 text-4xl rounded-md text-white mb-1'></MdEditSquare></Link>
+                    <Link to={`/CoffeeDetails/${_id}`}><MdEditSquare className='bg-[#D2B48C] p-2 text-4xl rounded-md text-white mb-1'></MdEditSquare></Link>
                     <Link to={`/updateCoffee/${_id}`} ><MdEditOff className='bg-[#3C393B] p-2 text-4xl rounded-md text-white mb-1'></MdEditOff></Link>
                     <Link onClick={() => handleDeleted(_id)}><MdDelete className='bg-[#EA4744] p-2 text-4xl rounded-md text-white'></MdDelete></Link>
                 </div>

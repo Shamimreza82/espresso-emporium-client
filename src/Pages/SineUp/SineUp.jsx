@@ -23,7 +23,7 @@ const SineUp = () => {
         const user = {email, createTime: time }; 
         
 
-        fetch('http://localhost:5000/user', {
+        fetch('https://espresso-emporium-server-6xqe1i7nh-shamim-rezas-projects.vercel.app/user', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

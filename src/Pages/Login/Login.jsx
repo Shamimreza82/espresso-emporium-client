@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Navber from "../../MainLayout/Header/Navber";
+import Footer from "../../MainLayout/Footer/Footer";
+import bg from '../../assets/more/1.png'
 
 const Login = () => {
 
@@ -24,7 +27,7 @@ const Login = () => {
         }
 
         //update last logged at in the database
-        fetch('http://localhost:5000/user', {
+        fetch('https://espresso-emporium-server-6xqe1i7nh-shamim-rezas-projects.vercel.app/user', {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,11 +48,14 @@ const Login = () => {
 
 
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+    <div>
+      <Navber></Navber>
+      <div className='min-h-[100vh] md:py-10 py-3 md:my-10' style={{backgroundImage: `url(${bg})`,
+         backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
+      <div className=" flex justify-center items-center">
 
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <h2 className="text-center mt-6 text-2xl">Login</h2>
+            <h2 className="text-center mt-6 text-2xl font-bold">Login</h2>
           <form onSubmit={handlelogin} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -84,9 +90,11 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
-          <p className="text-center">Please <Link to='/sineup' className="text-red-600">SineUp</Link></p>
+          <p className="text-center mb-">Please <Link to='/sineup' className="text-red-600">SineUp</Link></p>
         </div>
       </div>
+    </div>
+    <Footer></Footer>
     </div>
   );
 };
