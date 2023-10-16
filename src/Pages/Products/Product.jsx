@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdEditSquare, MdEditOff, MdDelete  } from "react-icons/md";
 import Swal from 'sweetalert2';
+import { RiEyeFill } from "react-icons/ri";
 
 const Product = ({coffee, coffees, setCoffees}) => {
     const {_id, name, category, chef, details, photo, supplier, taste} = coffee; 
@@ -46,7 +47,7 @@ const Product = ({coffee, coffees, setCoffees}) => {
     }
     
     return (
-        <div>
+        <div className='px-3'>
             <div className='flex justify-around items-center bg-[#F5F4F1] py-8 rounded-md font-Raleway px-2 '>
                 <img className='min-h-fit' src={photo} alt="" />
                 <div className='space-y-2'>
@@ -56,7 +57,7 @@ const Product = ({coffee, coffees, setCoffees}) => {
                     <h4 className='md:text-base text-sm'><strong>Price:</strong> 890 TK </h4>
                 </div>
                 <div className=''>
-                    <Link to={`/CoffeeDetails/${_id}`}><MdEditSquare className='bg-[#D2B48C] p-2 text-4xl rounded-md text-white mb-1'></MdEditSquare></Link>
+                    <Link to={`/CoffeeDetails/${_id}`}><RiEyeFill className='bg-[#D2B48C] p-2 text-4xl rounded-md text-white mb-1'></RiEyeFill></Link>
                     <Link to={`/updateCoffee/${_id}`} ><MdEditOff className='bg-[#3C393B] p-2 text-4xl rounded-md text-white mb-1'></MdEditOff></Link>
                     <Link onClick={() => handleDeleted(_id)}><MdDelete className='bg-[#EA4744] p-2 text-4xl rounded-md text-white'></MdDelete></Link>
                 </div>

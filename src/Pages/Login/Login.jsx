@@ -4,6 +4,8 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Navber from "../../MainLayout/Header/Navber";
 import Footer from "../../MainLayout/Footer/Footer";
 import bg from '../../assets/more/1.png'
+import {Helmet} from "react-helmet";
+import Marquee from "react-fast-marquee";
 
 const Login = () => {
 
@@ -49,13 +51,17 @@ const Login = () => {
 
   return (
     <div>
+      
+      <Helmet>
+           <title>Espresso Emporium | login</title>
+      </Helmet>
       <Navber></Navber>
       <div className='min-h-[100vh] md:py-10 py-3 md:my-10' style={{backgroundImage: `url(${bg})`,
          backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
       <div className=" flex justify-center items-center">
 
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <h2 className="text-center mt-6 text-2xl font-bold">Login</h2>
+            <h2 className="text-center mt-6 text-2xl font-bold">Please Login</h2>
           <form onSubmit={handlelogin} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -87,7 +93,7 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary bg-[#D2B48C] border-none text-white hover:bg-slate-400">Login</button>
             </div>
           </form>
           <p className="text-center mb-">Please <Link to='/sineup' className="text-red-600">SineUp</Link></p>

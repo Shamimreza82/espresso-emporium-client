@@ -7,6 +7,7 @@ import SineUp from "../Pages/SineUp/SineUp";
 import User from "../User/User";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import CoffeeDetails from "../Pages/CoffeeDetails/CoffeeDetails";
+import Product from "../Pages/Products/Product";
 
 const router = createBrowserRouter([
     {
@@ -42,7 +43,8 @@ const router = createBrowserRouter([
         path: '/CoffeeDetails/:id', 
         element: <CoffeeDetails></CoffeeDetails>, 
         loader: ({params}) => fetch(`http://localhost:5000/coffeeDetails/${params.id}`)
-    }
+    }, 
+
 
 ])
 

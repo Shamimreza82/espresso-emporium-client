@@ -10,7 +10,7 @@ import img8 from '../../assets/cups/Rectangle 16.png'
 
 const Instagram = () => {
     return (
-        <div className='min-h-[100vh] md:py-10 py-3 '>
+        <div className='min-h-[100vh] md:py-10 py-3 px-3'>
             <div className='text-center mb-6  '>
                 <h1 className='font-Raleway'>Follow Us Now</h1>
                 <h2 className='text-3xl text-[#331A15]'>Follow on Instagram</h2>
